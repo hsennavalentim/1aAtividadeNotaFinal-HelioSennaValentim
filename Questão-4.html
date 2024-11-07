@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords"      content="HTML, CSS, JavaScript">
+    <meta name="description"   content="Calculadora IMC">
+    <meta name="author"        content="Hélio Senna Valentim">
+    <meta name="viewport"      content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA IMC</title>
+
+    <style>
+	body {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 90vh;
+	    background-color: #372;
+	    margin: 0;
+	}
+
+	.container {
+	    text-align: center;
+	    background-color: #222;
+	    padding: 20px;
+	    border-radius: 10px;
+	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	    color: #fff;
+	}
+	
+	h1 {
+	    font-size: 36px;
+	}
+
+	label, input {
+	    display: block;
+	    margin: 10px 0;
+	}
+
+	input {
+	    width: 100%;
+	    padding: 5px;
+	    border: none;
+	    border-radius: 5px;
+	}
+
+	button {
+	    background-color: #007bff;
+	    color: #fff;
+	    border: none;
+	    padding: 10px 20px;
+	    margin: 10px;
+	    border-radius: 5px;
+	    cursor: pointer;
+	}
+
+	button:hover {
+	    background-color: #0056b3;
+	}
+	
+	#resultado {
+	    font-size: 25px;
+	    margin-top: 25px;
+	}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULADORA IMC</h1>
+        <label for="peso">PESO (kg):</label>
+        <input type="number" id="peso" placeholder="Digite seu peso" required>
+        <label for="altura">ALTURA (m):</label>
+        <input type="number" id="altura" placeholder="Digite sua altura" required>
+        <button id="calcular">CALCULAR</button>
+        <div id="resultado"></div>
+    </div>
+    <script>
+	document.addEventListener("DOMContentLoaded", function () {
+	    const calcularButton = document.getElementById("calcular");
+	    const pesoInput = document.getElementById("peso");
+	    const alturaInput = document.getElementById("altura");
+	    const resultadoDiv = document.getElementById("resultado");
+
+	    calcularButton.addEventListener("click", function () {
+        	const peso = parseFloat(pesoInput.value);
+	        const altura = parseFloat(alturaInput.value);
+
+	        if (!isNaN(peso) && !isNaN(altura) && altura > 0) {
+	            const imc = peso / (altura * altura);
+        	    const sit = verificarSit(imc);
+	            resultadoDiv.textContent = `Seu IMC é ${imc.toFixed(2)}. ${sit}`;
+        	} 
+	        else {
+	            resultadoDiv.textContent = "Valores digitados invalidos.";
+	        }
+	    });
+
+	    function verificarSit(imc) {
+	        if (imc < 18.5) {
+	            return "Está abaixo do peso.";
+	        } 
+	        else if (imc < 24.9) {
+	            return "Peso na faixa normal.";
+	        } 
+	        else if (imc < 29.9) {
+	            return "Está com sobrepeso.";
+	        } 
+	        else if (imc < 34.9) {
+	            return "Tem obesidade grau I.";
+	        } 
+	        else if (imc < 39.9) {
+	            return "Tem obesidade grau II.";
+	        } 
+	        else {
+	            return "Tem obesidade grau III.";
+	        }
+	    }
+	});
+
+    </script>
+</body>
+</html>
