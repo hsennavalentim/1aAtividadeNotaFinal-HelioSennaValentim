@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords"      content="HTML, CSS">
+    <meta name="description"   content="Validação Formulario">
+    <meta name="author"        content="Hélio Senna Valentim">
+    <meta name="viewport"      content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+<style>
+	
+	body{
+		background-color: lightblue;
+		color: darkblue;
+		font-family: Arial, sans-serif;
+	}
+	.box-model{
+		width: 1080px;
+		padding: 20px;
+		border: 5px solid #007bFF;
+		margin: 30px;
+		background-color: #e0f7fa;
+	}
+	header{
+		background-color: navy;
+		color: white;
+		padding: 20px
+		text-align: center;
+	}
+	
+	section{
+		background-color: lightgreen;
+		padding: 20px
+	}
+	
+	footer{
+		background-color: darkgreen;
+		color: white;
+		text-align: center;		
+		padding: 10px
+	}	
+
+		
+	h1{
+	   color: blue;
+	   font-family: verdana;
+	   font-size: 300%;		
+	}
+
+	a:hover{
+		color: red;
+	}
+
+	p{
+		font-size: 16px;
+		margin: 10px 0;	  
+	}
+	   
+        p::before{
+	   content: "Objetivo: ";
+	   color: red;
+	   font-weight: bold;
+        }
+   
+        p::first-letter{
+	   font-size: 2em;
+	   color: blue;
+        }
+   
+        li: nth-child(odd) {
+	   background-color: lightgray;
+        }
+   
+        ::selection{
+	   background-color: yellow;
+	   color: black;
+        }
+   
+        h1{
+           font-size: 36px;
+	}
+        p   {
+           border-width: 3px;
+           border-style: dashed;
+           border-color: #0F0;
+	}
+</style>
+</head>
+<body>
+	<form action="/submit_form" method="post">
+             <h1>Formulario de Contato</h1>
+	     <label for="name">Nome: </label>
+	     <input id="name" type=text title="Preencha o campo Nome"   required> <br> <br>
+	     <label for="email">Email: </label> 
+             <input type="email" id="email" name="email" title="Preencha o campo Email" required>
+	     <input type="submit" value="OK">
+	</form>
+</body>
+</html>
